@@ -142,12 +142,24 @@ for (i in formattedContactInfo) {
 $("#education").append(HTMLschoolStart);
 
 
-schools.schools.forEach(function(school) { 
+ for (i in schools.schools){  
 
-	HTMLschoolName = '<a href="#">%data%';
-	HTMLschoolName = HTMLschoolName.replace("%data%", school.name);
-	$("#education").append(HTMLschoolName);
-} ) ;
+	
+	var formattedHTMLschoolName = HTMLschoolName.replace("%data%", schools.schools[i].name);
+  var formattedHTMLschoolDegree = HTMLschoolDegree.replace("%data%", schools.schools[i].degree);
+  var formattedHTMLschoolLocation = HTMLschoolLocation.replace("%data%", schools.schools[i].location);
+  var formattedHTMLschoolDates = HTMLschoolDates.replace("%data%", schools.schools[i].dates);
+  var formattedHTMLschoolMajor = HTMLschoolMajor.replace("%data%", schools.schools[i].majors);
+	
+  $("#education").append(formattedHTMLschoolName);
+  $("#education").append(formattedHTMLschoolDegree);
+  $("#education").append(formattedHTMLschoolDates);
+  $("#education").append(formattedHTMLschoolLocation);
+  $("#education").append(formattedHTMLschoolMajor);
+
+
+
+}  ;
 
 /*Append Work*/
 
@@ -161,6 +173,7 @@ function displayJobs (){
     var formattedDates = HTMLworkDates.replace("%data%", work.jobs[i].datesWorked);
     var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
     var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
+
 
     $("#workExperience").append(formattedEmployer);
     $("#workExperience").append(formattedDates);
