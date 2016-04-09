@@ -12,7 +12,7 @@ var bio = {
         "github": "JustinianH"
     },
 
-    "image": "images/fry.jpg",
+    "image": "images/me_suit.jpg",
     "welcomeMessage": "Hi! Thanks for visiting my resume page!",
     "skills": ["HTML ", "CSS ", "Javascript ", "PHP "],
     "biopic": "url",
