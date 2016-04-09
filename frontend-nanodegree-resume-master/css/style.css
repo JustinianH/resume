@@ -24,6 +24,10 @@ h6 {
   padding: 0 5%;
 }
 
+.pad-5 {
+  padding: 0 5% 0 5%;
+}
+
 h1 {
   font-size: 40px;
   color: #f5a623;
