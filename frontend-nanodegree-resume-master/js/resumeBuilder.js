@@ -1,6 +1,3 @@
-/*
-This is empty on purpose! Your code to build the resume will go here.
-*/
 var bio = {
     "name": "Justin Hanson",
     "role": "Web Developer",
@@ -15,7 +12,7 @@ var bio = {
     "image": "images/me_suit.jpg",
     "welcomeMessage": "Hi! Thanks for visiting my resume page!",
     "skills": ["HTML ", "CSS ", "Javascript ", "PHP "],
-    "biopic": "url",
+    "biopic": "www.justinnhanson.com",
     display: function() {
 
         //if (bio.skills.length != 0 )
@@ -95,6 +92,7 @@ var education = {
         $("#education").append(HTMLschoolStart);
 
 
+
         for (i in education.schools) {
 
 
@@ -104,23 +102,40 @@ var education = {
             var formattedHTMLschoolDates = HTMLschoolDates.replace("%data%", education.schools[i].dates);
             var formattedHTMLschoolMajor = HTMLschoolMajor.replace("%data%", education.schools[i].majors);
 
-            $("#education").append(formattedHTMLschoolName);
-            $("#education").append(formattedHTMLschoolDegree);
-            $("#education").append(formattedHTMLschoolDates);
-            $("#education").append(formattedHTMLschoolLocation);
-            $("#education").append(formattedHTMLschoolMajor);
-
+            $(".education-entry:last").append(formattedHTMLschoolName+formattedHTMLschoolDegree);
+            $(".education-entry:last").append(formattedHTMLschoolDates);
+            $(".education-entry:last").append(formattedHTMLschoolLocation);
+            $(".education-entry:last").append(formattedHTMLschoolMajor);
         };
+    },
+
+    displayOnlineCourses: function () {
+
+        $("#education").append(HTMLonlineClasses);
+        $("#education").append(HTMLschoolStart);
+
+        for (i in education.onlineCourses) {
+
+            var formattedHTMLonlineTitle = HTMLonlineTitle.replace("%data%", education.onlineCourses[i].title);
+            var formattedHTMLonlineSchool = HTMLonlineSchool.replace("%data%", education.onlineCourses[i].school);
+            var formattedHTMLonlineDates = HTMLonlineDates.replace("%data%", education.onlineCourses[i].date);
+            var formattedHTMLonlineURL = HTMLonlineURL.replace("%data%", education.onlineCourses[i].url);
+            
+            $(".education-entry:last").append(formattedHTMLonlineTitle+formattedHTMLonlineSchool);
+            $(".education-entry:last").append(formattedHTMLonlineDates);
+            $(".education-entry:last").append(formattedHTMLonlineURL);
+
+        }
 
     }
-}
+}    
 
 var work = {
     "jobs": [{
         "employer": "The Shipyard",
         "title": "Content Strategist",
         "location": "Columbus, Ohio",
-        "datesWorked": "October 2014 - Present",
+        "dates": "October 2014 - Present",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in aliquet ex, vitae efficitur felis. In vulputate placerat pulvinar. Nulla imperdiet ac purus eget sagittis. Nullam lacinia quam at dolor tempor molestie. Proin consequat a urna id facilisis. Vestibulum leo nunc, varius a dui eget, gravida tempor turpis. Duis euismod vel nisl at viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. "
     }, {
         "employer": "University of Illinois, Urbana-Champaign",
@@ -144,7 +159,7 @@ var work = {
         for (i in work.jobs) {
 
             var formattedEmployer = HTMLworkEmployer.replace("%data%", work.jobs[i].employer) + HTMLworkTitle.replace("%data%", work.jobs[i].title);
-            var formattedDates = HTMLworkDates.replace("%data%", work.jobs[i].datesWorked);
+            var formattedDates = HTMLworkDates.replace("%data%", work.jobs[i].dates);
             var formattedLocation = HTMLworkLocation.replace("%data%", work.jobs[i].location);
             var formattedDescription = HTMLworkDescription.replace("%data%", work.jobs[i].description);
 
@@ -166,13 +181,13 @@ var projects = {
 
     "projects": [{
         "title": "Online Portfolio",
-        "datesWorked": "January 2015",
+        "dates": "January 2015",
         "description": "Created an online portfolio of work as part of Udacity's Front-End Web Developer.",
         "images": ["images/197x148.gif"],
         "url": "http://www.justinnhanson.com"
     }, {
         "title": "Tortilla Recipes Website",
-        "datesWorked": "Winter 2016",
+        "dates": "Winter 2016",
         "description": "Created a comphrehensive tortilla recipe website for beginner cooks.",
         "images": ["images/197x148.gif"],
         "url": "http://www.tortillasrecipes.com"
@@ -180,12 +195,12 @@ var projects = {
 
     display: function () {
 
-       $("#projects").append(HTMLprojectStart);
+     $("#projects").append(HTMLprojectStart);
 
-       for (i in projects.projects) {
+     for (i in projects.projects) {
 
         var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
-        var formattedProjectDate = HTMLprojectDates.replace("%data%", projects.projects[i].datesWorked);
+        var formattedProjectDate = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
         var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
         var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].image);
 
@@ -194,9 +209,9 @@ var projects = {
         $("#projects").append(formattedProjectDescription);
         $("#projects").append(formattedProjectImage);
 
-        }
-
     }
+
+}
 
 }
 
@@ -205,8 +220,9 @@ var projects = {
 work.display();
 projects.display();
 education.display();
+education.displayOnlineCourses();
 bio.display();
-bio.contacts.display();
+
 
 /* Display Map */
 
