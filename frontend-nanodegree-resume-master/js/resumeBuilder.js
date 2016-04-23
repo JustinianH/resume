@@ -12,7 +12,7 @@ var bio = {
     "welcomeMessage": "Hi! Thanks for visiting my resume page!",
     "skills": ["HTML ", "CSS ", "Javascript ", "PHP "],
     "biopic": "images/me_suit.jpg",
-    display: function() {
+    "display": function() {
 
         //if (bio.skills.length != 0 )
 
@@ -90,10 +90,7 @@ var education = {
 
         $("#education").append(HTMLschoolStart);
 
-
-
         for (i in education.schools) {
-
 
             var formattedHTMLschoolName = HTMLschoolName.replace("%data%", education.schools[i].name);
             var formattedHTMLschoolDegree = HTMLschoolDegree.replace("%data%", education.schools[i].degree);
@@ -106,9 +103,6 @@ var education = {
             $(".education-entry:last").append(formattedHTMLschoolLocation);
             $(".education-entry:last").append(formattedHTMLschoolMajor);
         }
-    },
-
-    "displayOnlineCourses": function () {
 
         $("#education").append(HTMLonlineClasses);
         $("#education").append(HTMLschoolStart);
@@ -127,6 +121,7 @@ var education = {
         }
 
     }
+
 }    
 
 var work = {
@@ -150,7 +145,7 @@ var work = {
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus in aliquet ex, vitae efficitur felis. In vulputate placerat pulvinar. Nulla imperdiet ac purus eget sagittis. Nullam lacinia quam at dolor tempor molestie. Proin consequat a urna id facilisis. Vestibulum leo nunc, varius a dui eget, gravida tempor turpis. Duis euismod vel nisl at viverra. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos."
     }],
 
-    display: function () {
+    "display": function () {
 
 
         $("#workExperience").append(HTMLworkStart);
@@ -192,7 +187,7 @@ var projects = {
         "url": "http://www.tortillasrecipes.com"
     }], 
 
-    display: function () {
+    "display": function () {
 
        $("#projects").append(HTMLprojectStart);
 
@@ -219,7 +214,6 @@ var projects = {
 work.display();
 projects.display();
 education.display();
-education.displayOnlineCourses();
 bio.display();
 
 
