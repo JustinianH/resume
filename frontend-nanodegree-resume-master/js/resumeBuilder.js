@@ -9,16 +9,15 @@ var bio = {
         "github": "JustinianH"
     },
 
-    "image": "images/me_suit.jpg",
     "welcomeMessage": "Hi! Thanks for visiting my resume page!",
     "skills": ["HTML ", "CSS ", "Javascript ", "PHP "],
-    "biopic": "www.justinnhanson.com",
+    "biopic": "images/me_suit.jpg",
     display: function() {
 
         //if (bio.skills.length != 0 )
 
         var formattedName = HTMLheaderName.replace("%data%", bio.name);
-        var formattedImage = HTMLbioPic.replace("%data%", bio.image);
+        var formattedImage = HTMLbioPic.replace("%data%", bio.biopic);
         var formattedRole = HTMLheaderRole.replace("%data%", bio.role);
         var formattedMessage = HTMLwelcomeMsg.replace("%data%", bio.welcomeMessage);
         
@@ -57,7 +56,7 @@ var bio = {
 
     }
 
-}
+};
 
 var education = {
 
@@ -87,7 +86,7 @@ var education = {
         "url": "www.udacity.com"
     }],
 
-    display: function () {
+    "display": function () {
 
         $("#education").append(HTMLschoolStart);
 
@@ -106,10 +105,10 @@ var education = {
             $(".education-entry:last").append(formattedHTMLschoolDates);
             $(".education-entry:last").append(formattedHTMLschoolLocation);
             $(".education-entry:last").append(formattedHTMLschoolMajor);
-        };
+        }
     },
 
-    displayOnlineCourses: function () {
+    "displayOnlineCourses": function () {
 
         $("#education").append(HTMLonlineClasses);
         $("#education").append(HTMLschoolStart);
@@ -183,26 +182,26 @@ var projects = {
         "title": "Online Portfolio",
         "dates": "January 2015",
         "description": "Created an online portfolio of work as part of Udacity's Front-End Web Developer.",
-        "images": ["images/197x148.gif"],
+        "images": ["images/justinnhanson_site.png"],
         "url": "http://www.justinnhanson.com"
     }, {
         "title": "Tortilla Recipes Website",
         "dates": "Winter 2016",
         "description": "Created a comphrehensive tortilla recipe website for beginner cooks.",
-        "images": ["images/197x148.gif"],
+        "images": ["images/tortilla_site.png"],
         "url": "http://www.tortillasrecipes.com"
     }], 
 
     display: function () {
 
-     $("#projects").append(HTMLprojectStart);
+       $("#projects").append(HTMLprojectStart);
 
-     for (i in projects.projects) {
+       for (i in projects.projects) {
 
         var formattedProjectTitle = HTMLprojectTitle.replace("%data%", projects.projects[i].title);
         var formattedProjectDate = HTMLprojectDates.replace("%data%", projects.projects[i].dates);
         var formattedProjectDescription = HTMLprojectDescription.replace("%data%", projects.projects[i].description);
-        var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].image);
+        var formattedProjectImage = HTMLprojectImage.replace("%data%", projects.projects[i].images);
 
         $("#projects").append(formattedProjectTitle);
         $("#projects").append(formattedProjectDate);
